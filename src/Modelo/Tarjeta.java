@@ -73,6 +73,15 @@ public class Tarjeta {
 	public void setCardHolder(CardHolder cardHolder) {
 		this.cardHolder = cardHolder;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Tarjeta [id=" + id + ", marca=" + marca + ", numeroTarjeta=" + numeroTarjeta + ", fechaDeVencimiento="
+				+ fechaDeVencimiento + ", cardHolder=" + cardHolder + "]";
+	}
+	
+	
 	
 	
 	

@@ -34,6 +34,14 @@ public class CardHolder {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+
+
+	@Override
+	public String toString() {
+		return "CardHolder [nombre=" + nombre + ", apellido=" + apellido + "]";
+	}
+	
+	
 	
 	
 	

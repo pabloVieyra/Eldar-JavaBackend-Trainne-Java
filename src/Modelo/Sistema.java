@@ -24,7 +24,7 @@ public class Sistema {
 		this.tarjetas = tarjetas;
 	}
 	
-	
+
 	
 	public boolean agregarTarjeta( String marca, long numeroTarjeta, LocalDate fechaDeVencimiento, CardHolder cardHolder) {
 		boolean carga = false;
@@ -48,34 +48,81 @@ public class Sistema {
 	}
 	
 	
-	
-	
-	
 	public Tarjeta traerTarjeta(long numeroDeTarjeta) {
 		Tarjeta aux= new Tarjeta();
 		for(int i=0;  i< tarjetas.size(); i++) {
 			if(tarjetas.get(i).getNumeroTarjeta() == numeroDeTarjeta) {
 				aux = tarjetas.get(i);	
+			
 				}
 			}
 			
 			return aux;
 	}
 	
-	public boolean OperacionValida(long numeroDeTarjeta) {
-		return false;
+	public boolean OperacionValida(long numeroDeTarjeta, long operacion) {
+		boolean exitoso = false;
+		if(operacion > 1000  ) {
+			exitoso = true;
+		}
+		
+		return exitoso;
 	}
 	
 	public boolean tarjetaValida(long numeroDeTarjeta) {
-		return false;
+		boolean exitoso = false;
+		if(traerTarjeta(numeroDeTarjeta).getFechaDeVencimiento() == LocalDate.now()) {
+			exitoso = true;
+		}
+		return exitoso;
 	}
 	
 	public boolean tarjetasDistintas(long numeroDeTarjeta,long numeroDeTarjeta2 ) {
-		return false;
+		boolean iguales = false;
+		if(traerTarjeta(numeroDeTarjeta).equals(numeroDeTarjeta2)) {
+			iguales = true;
+		}
+		return iguales;
 	}
 	
-	public long saberTasa(String marca,int importe ) {
-		return 0;
+	public long saberTasa(String marca,long importe ) {
+		long tasa = 0;
+		
+		 switch (marca){
+
+         case "visa":{
+
+             System.out.println("Usted eligió la opcion visa.");
+             tasa = importe ;
+
+             break;
+
+         }
+
+         case "Nara":{
+
+             System.out.println("Usted eligió la opcion Nara.");
+             tasa = (long) (importe*1.5) ;
+
+             break;
+         }
+
+         case "Amex":{
+
+             System.out.println("Usted eligió la opcion Amex.");
+             tasa = (long) (importe*1.1) ;
+             
+             break;
+         }
+
+         default: {
+             System.out.println("Opcion incorrecta");
+         }
+   }//cierra SWITCH
+		
+		
+		
+		return tasa;
 	}
 	
 	
