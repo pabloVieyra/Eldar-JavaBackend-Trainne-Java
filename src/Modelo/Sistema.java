@@ -71,16 +71,16 @@ public class Sistema {
 	
 	public boolean tarjetaValida(long numeroDeTarjeta) {
 		boolean exitoso = false;
-		if(traerTarjeta(numeroDeTarjeta).getFechaDeVencimiento() == LocalDate.now()) {
+		if(traerTarjeta(numeroDeTarjeta).getFechaDeVencimiento().isAfter(LocalDate.now()) == true) {
 			exitoso = true;
 		}
 		return exitoso;
 	}
 	
 	public boolean tarjetasDistintas(long numeroDeTarjeta,long numeroDeTarjeta2 ) {
-		boolean iguales = false;
-		if(traerTarjeta(numeroDeTarjeta).equals(numeroDeTarjeta2)) {
-			iguales = true;
+		boolean iguales = true;
+		if(traerTarjeta(numeroDeTarjeta).equals(traerTarjeta(numeroDeTarjeta2))) {
+			iguales = false;
 		}
 		return iguales;
 	}
@@ -92,8 +92,8 @@ public class Sistema {
 
          case "visa":{
 
-             System.out.println("Usted eligió la opcion visa.");
-             tasa = importe ;
+             System.out.println("Usted eligio la opcion visa.");
+             tasa = importe*(LocalDate.now().getYear()/LocalDate.now().getMonthValue()) ;
 
              break;
 
@@ -101,16 +101,16 @@ public class Sistema {
 
          case "Nara":{
 
-             System.out.println("Usted eligió la opcion Nara.");
-             tasa = (long) (importe*1.5) ;
+             System.out.println("Usted eligio la opcion Nara.");
+             tasa = (long) (importe*(0.5*LocalDate.now().getDayOfMonth())) ;
 
              break;
          }
 
          case "Amex":{
 
-             System.out.println("Usted eligió la opcion Amex.");
-             tasa = (long) (importe*1.1) ;
+             System.out.println("Usted eligio la opcion Amex.");
+             tasa = (long) (importe*(0.1*LocalDate.now().getMonthValue())) ;
              
              break;
          }

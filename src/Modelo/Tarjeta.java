@@ -1,6 +1,7 @@
 package Modelo;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Tarjeta {
 	private int id;
@@ -80,6 +81,32 @@ public class Tarjeta {
 		return "Tarjeta [id=" + id + ", marca=" + marca + ", numeroTarjeta=" + numeroTarjeta + ", fechaDeVencimiento="
 				+ fechaDeVencimiento + ", cardHolder=" + cardHolder + "]";
 	}
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(cardHolder, fechaDeVencimiento, id, marca, numeroTarjeta);
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Tarjeta other = (Tarjeta) obj;
+		return Objects.equals(cardHolder, other.cardHolder)
+				&& Objects.equals(fechaDeVencimiento, other.fechaDeVencimiento) && id == other.id
+				&& Objects.equals(marca, other.marca) && numeroTarjeta == other.numeroTarjeta;
+	}
+
+
+	
+	
+
 	
 	
 	

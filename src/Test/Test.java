@@ -1,5 +1,7 @@
 package Test;
 
+import java.time.LocalDate;
+
 import Modelo.CardHolder;
 import Modelo.Sistema;
 
@@ -12,7 +14,7 @@ public class Test {
 		
 		System.out.println("1-1)");
 		
-		System.out.println(eldar.agregarTarjeta("visa", 1150358935, null, new CardHolder("pablo","Vieyra")));
+		System.out.println(eldar.agregarTarjeta("visa", 1150358935, LocalDate.of(2022, 8, 24), new CardHolder("pablo","Vieyra")));
 		
 		
 		System.out.println("\nTraer Tarjeta)");
@@ -23,13 +25,13 @@ public class Test {
 		
 		System.out.println(eldar.OperacionValida(1150358935, 1001));
 		
-		System.out.println("\ntarjetaValida)");
+		System.out.println("\ntarjeta Valida)");
 		
 		System.out.println(eldar.tarjetaValida(1150358935));
 		
-		System.out.println("\ntarjetasDistintas)");
+		System.out.println("\ntarjetas Distintas)");
 		
-		System.out.println(eldar.tarjetasDistintas(1150358935,1150358999));
+		System.out.println(eldar.tarjetasDistintas(1150358935,1150358935));
 		
 		System.out.println("\nSaber tasa final)");
 		
