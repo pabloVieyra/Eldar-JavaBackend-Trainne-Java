@@ -7,4 +7,4 @@ Para hacer mas agil el entendimiento del codigo dejo el link a un notion explica
 donde muestro los diferentes cambios y pensamiento a la hora de desarrollar el codigo, tambien
 pueden encontrar el modelo entidad relacion
 
-<a href="https://roan-chokeberry-6fa.notion.site/Eldar-Java-Backend-Training-579d0a64b66f4b15996b3d41680bdc95" target=_blank>Notion</a> 
+<a href="https://roan-chokeberry-6fa.notion.site/Eldar-Java-Backend-Training-579d0a64b66f4b15996b3d41680bdc95" target="_blank">Notion</a> 
