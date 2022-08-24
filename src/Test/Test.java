@@ -16,6 +16,8 @@ public class Test {
 		// ------------------------------------> agregamos 1 Marca
 
 		eldar.agregarMarca("visa");
+		eldar.agregarMarca("nara");
+		eldar.agregarMarca("amex");
 
 		// ------------------------------------> agregamos 1 Tarjeta
 
