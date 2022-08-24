@@ -8,3 +8,5 @@ donde muestro los diferentes cambios y pensamiento a la hora de desarrollar el c
 pueden encontrar el modelo entidad relacion
 
 <a href="https://roan-chokeberry-6fa.notion.site/Eldar-Java-Backend-Training-579d0a64b66f4b15996b3d41680bdc95" target="_blank">Notion</a> 
+
+![foto_home_01](https://user-images.githubusercontent.com/91098592/186323814-d47cef94-0068-4716-8e42-839bf993a37f.jpg)
