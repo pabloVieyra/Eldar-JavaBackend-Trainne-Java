@@ -7,8 +7,8 @@ import java.util.Objects;
 public class Marca {
 	private int id;
 	private String Marca;
-	
-	//Contructores + getters and setters
+
+	// Contructores + getters and setters
 	public Marca(int id, String marca) {
 		super();
 		this.id = id;

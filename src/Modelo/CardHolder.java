@@ -7,7 +7,7 @@ public class CardHolder {
 	private String nombre;
 	private String apellido;
 
-	//Contructores + getters and setters
+	// Contructores + getters and setters
 	public CardHolder(String nombre, String apellido) {
 		super();
 		this.nombre = nombre;

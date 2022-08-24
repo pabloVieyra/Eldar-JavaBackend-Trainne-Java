@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Sistema {
-	// En esta clase voy a utilizar una lista de tarjetas y marcas con su logica de negocio
+	// En esta clase voy a utilizar una lista de tarjetas y marcas con su logica de
+	// negocio
 	// para despues implementarla en el test
 	public List<Tarjeta> tarjetas = new ArrayList<Tarjeta>();
 	public List<Marca> marcas = new ArrayList<Marca>();

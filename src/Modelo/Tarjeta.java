@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 //Clase tarjeta que contiene los datos basicos y 2 clases (cardHolder y Marca)
-
 public class Tarjeta {
 	private int id;
 	private Marca marca;
@@ -12,6 +11,7 @@ public class Tarjeta {
 	private LocalDate fechaDeVencimiento;
 	private CardHolder cardHolder;
 
+	// Contructores + getters and setters
 	public Tarjeta(int id, Marca marca, String numeroTarjeta, LocalDate fechaDeVencimiento, CardHolder cardHolder)
 			throws Exception {
 		super();
