@@ -14,24 +14,49 @@ public class Test {
 		
 		System.out.println("1-1)");
 		
-		System.out.println(eldar.agregarTarjeta("visa", 1150358935, LocalDate.of(2022, 8, 24), new CardHolder("pablo","Vieyra")));
+		try {
+			System.out.println(eldar.agregarTarjeta("visa", "1111222233334444", LocalDate.of(2022, 8, 24), new CardHolder("pablo","Vieyra")));
+			
+		}catch(Exception e) {
+			System.out.println("Exception :" + e.getMessage());
+		}
 		
 		
 		System.out.println("\nTraer Tarjeta)");
 		
-		System.out.println(eldar.traerTarjeta(1150358935));
+		try {
+			System.out.println(eldar.traerTarjeta("1111222233334444"));
+			
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		
+		
 		
 		System.out.println("\nOperacion Valida)");
 		
-		System.out.println(eldar.OperacionValida(1150358935, 1001));
+		System.out.println(eldar.OperacionValida("1111222233334444", 1001));
 		
 		System.out.println("\ntarjeta Valida)");
+		try {
+			System.out.println(eldar.tarjetaValida("1111222233334444"));
+			
+		}catch(Exception e){
+			System.out.println("Exception :" + e.getMessage());
+		}
 		
-		System.out.println(eldar.tarjetaValida(1150358935));
+		
 		
 		System.out.println("\ntarjetas Distintas)");
 		
-		System.out.println(eldar.tarjetasDistintas(1150358935,1150358935));
+		try {
+			System.out.println(eldar.tarjetasDistintas("1111222233334444","1111222233334444"));
+			
+		}catch(Exception e){
+			System.out.println("Exception :" + e.getMessage());
+		}
+		
+		
 		
 		System.out.println("\nSaber tasa final)");
 		

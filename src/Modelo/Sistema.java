@@ -24,9 +24,20 @@ public class Sistema {
 		this.tarjetas = tarjetas;
 	}
 	
+	public boolean verificarTarjeta(Tarjeta tarjeta) {
+		boolean existe = false;
+		if(tarjeta.getFechaDeVencimiento() == null && tarjeta.getMarca() == null && tarjeta.getNumeroTarjeta()==null ) {
+			existe = true;
+			
+		}
+		return existe;
+	}
+	
+	
+	
 
 	
-	public boolean agregarTarjeta( String marca, long numeroTarjeta, LocalDate fechaDeVencimiento, CardHolder cardHolder) {
+	public boolean agregarTarjeta( String marca,String numeroTarjeta, LocalDate fechaDeVencimiento, CardHolder cardHolder) throws Exception {
 		boolean carga = false;
 		
 		if(tarjetas.size() == 0) {
@@ -48,7 +59,7 @@ public class Sistema {
 	}
 	
 	
-	public Tarjeta traerTarjeta(long numeroDeTarjeta) {
+	public Tarjeta traerTarjeta(String numeroDeTarjeta) throws Exception {
 		Tarjeta aux= new Tarjeta();
 		for(int i=0;  i< tarjetas.size(); i++) {
 			if(tarjetas.get(i).getNumeroTarjeta() == numeroDeTarjeta) {
@@ -56,28 +67,29 @@ public class Sistema {
 			
 				}
 			}
-			
-			return aux;
+		
+		if(verificarTarjeta(aux) == true)throw new Exception("Error La tarjeta no existe");
+		
+		return aux;
 	}
 	
-	public boolean OperacionValida(long numeroDeTarjeta, long operacion) {
+	public boolean OperacionValida(String numeroDeTarjeta, long operacion) {
 		boolean exitoso = false;
-		if(operacion > 1000  ) {
+		if(operacion < 1000  ) {
 			exitoso = true;
 		}
 		
 		return exitoso;
 	}
 	
-	public boolean tarjetaValida(long numeroDeTarjeta) {
-		boolean exitoso = false;
-		if(traerTarjeta(numeroDeTarjeta).getFechaDeVencimiento().isAfter(LocalDate.now()) == true) {
-			exitoso = true;
-		}
+	public boolean tarjetaValida(String numeroDeTarjeta) throws Exception {
+		boolean exitoso = traerTarjeta(numeroDeTarjeta).getFechaDeVencimiento().isAfter(LocalDate.now());
 		return exitoso;
 	}
 	
-	public boolean tarjetasDistintas(long numeroDeTarjeta,long numeroDeTarjeta2 ) {
+	
+	
+	public boolean tarjetasDistintas(String numeroDeTarjeta,String numeroDeTarjeta2 ) throws Exception {
 		boolean iguales = true;
 		if(traerTarjeta(numeroDeTarjeta).equals(traerTarjeta(numeroDeTarjeta2))) {
 			iguales = false;
@@ -93,7 +105,7 @@ public class Sistema {
          case "visa":{
 
              System.out.println("Usted eligio la opcion visa.");
-             tasa = importe*(LocalDate.now().getYear()/LocalDate.now().getMonthValue()) ;
+             tasa = (importe/100)*(LocalDate.now().getYear()/LocalDate.now().getMonthValue()) ;
 
              break;
 
@@ -102,7 +114,7 @@ public class Sistema {
          case "Nara":{
 
              System.out.println("Usted eligio la opcion Nara.");
-             tasa = (long) (importe*(0.5*LocalDate.now().getDayOfMonth())) ;
+             tasa = (long) ((importe/100)*(0.5*LocalDate.now().getDayOfMonth())) ;
 
              break;
          }
@@ -110,7 +122,7 @@ public class Sistema {
          case "Amex":{
 
              System.out.println("Usted eligio la opcion Amex.");
-             tasa = (long) (importe*(0.1*LocalDate.now().getMonthValue())) ;
+             tasa = (long) ((importe/100)*(0.1*LocalDate.now().getMonthValue())) ;
              
              break;
          }

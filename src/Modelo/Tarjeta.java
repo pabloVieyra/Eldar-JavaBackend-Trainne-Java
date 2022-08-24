@@ -6,16 +6,16 @@ import java.util.Objects;
 public class Tarjeta {
 	private int id;
 	private String marca;
-	private long numeroTarjeta;
+	private String numeroTarjeta;
 	private LocalDate fechaDeVencimiento;
 	private CardHolder cardHolder;
 	
 	
-	public Tarjeta(int id, String marca, long numeroTarjeta, LocalDate fechaDeVencimiento, CardHolder cardHolder) {
+	public Tarjeta(int id, String marca, String  numeroTarjeta, LocalDate fechaDeVencimiento, CardHolder cardHolder) throws Exception {
 		super();
 		this.id = id;
 		this.marca = marca;
-		this.numeroTarjeta = numeroTarjeta;
+		this.setNumeroTarjeta(numeroTarjeta);
 		this.fechaDeVencimiento = fechaDeVencimiento;
 		this.cardHolder = cardHolder;
 	}
@@ -46,12 +46,13 @@ public class Tarjeta {
 	}
 
 
-	public long getNumeroTarjeta() {
+	public String  getNumeroTarjeta() {
 		return numeroTarjeta;
 	}
 
 
-	public void setNumeroTarjeta(long numeroTarjeta) {
+	public void setNumeroTarjeta(String  numeroTarjeta)throws Exception {
+		if(numeroTarjeta.length() != 16)throw new Exception("El numero tiene que ser de 16 digitos , recordar poner los numero sin espacios");
 		this.numeroTarjeta = numeroTarjeta;
 	}
 
@@ -74,6 +75,8 @@ public class Tarjeta {
 	public void setCardHolder(CardHolder cardHolder) {
 		this.cardHolder = cardHolder;
 	}
+	
+
 
 
 	@Override
